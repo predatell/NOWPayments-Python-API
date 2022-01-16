@@ -85,7 +85,7 @@ class NOWPayments:
     def get_min_amount(self, currency_from=None, currency_to=None):
         endpoint = self.MIN_AMOUNT_URL.format(currency_from, currency_to)
         url = self.get_url(endpoint)
-        resp = requests.get(url)
+        resp = self.get_requests(url)
         if resp.status_code == 200:
             return resp.json()
         else:
